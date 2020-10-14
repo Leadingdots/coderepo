@@ -1,6 +1,6 @@
 <?php 
 
-namespace arvind\HelloWorld;
+namespace Leadingdots\Coderepo;
 
 class Index
 {

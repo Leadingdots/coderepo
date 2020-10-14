@@ -11,15 +11,7 @@
     ],
     "minimum-stability": "stable",
     "autoload": {
-        "psr-4": {"leadingdots\\HelloWorld\\": "src/"}
+        "psr-4": {"Leadingdots\\Coderepo\\": "src/"}
     },
-    "repositories": [
-        {"type": "git", "url": "https://github.com/Leadingdots/coderepo.git"},
-        {"type": "composer", "url": "https://repo.packagist.com/Leadingdots/"},
-        {"packagist.org": false}
-    ],
-    "require": {
-        "leadingdots/coderepo": "^1.0",
-        "leadingdots/coderepo": "dev-master"
-    }
+    "require": {}
 }
