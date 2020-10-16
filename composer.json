@@ -1,11 +1,11 @@
 {
     "name": "leadingdots/coderepo",
-    "description": "A simple hello world composer package",
+    "description": "A list laravel package for Leadingdots community uses",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Arvind Kumar Maurya",
+            "name": "Leadingdots",
             "email": "arvind.maurya@leadingdots.com"
         }
     ],
