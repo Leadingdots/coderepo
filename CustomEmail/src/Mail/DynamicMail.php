@@ -11,17 +11,17 @@ use Leadingdots\CustomEmail\Models\EmailTemplate;
 class DynamicMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $tokens, $template_type, $attachments;
+    public $tokens, $template_type, $file_attachments;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($tokens, $template_type, $attachments)
+    public function __construct($tokens, $template_type, $file_attachments)
     {
         $this->tokens = $tokens;
-        $this->attachments = $attachments;
+        $this->file_attachments = $file_attachments;
         $this->template_type = $template_type;
     }
 
@@ -41,9 +41,9 @@ class DynamicMail extends Mailable
            $message = $this->subject($subject)->markdown('customemail::emails.dynamicmail', [
                 'template' => $template->template
             ]);
-            if($this->attachments && count($this->attachments)){
-                foreach($this->attachments as $attach){
-                    $message->attach($attach);
+            if($this->file_attachments && count($this->file_attachments)){
+                foreach($this->file_attachments as $file_attachment){
+                    $message->attachData(file_get_contents($file_attachment['data']), $file_attachment['name']);
                 }
             }
             return $message;
