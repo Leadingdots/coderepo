@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
+Route::group(['middleware' => ['web']], function () {
 Route::group(['namespace' => 'Leadingdots\CustomEmail\Http\Controllers', 'middleware' => [config('coderepoldots.middleware')],'as'=>'ldots.'], function(){
    
     //token routes
@@ -14,4 +15,5 @@ Route::group(['namespace' => 'Leadingdots\CustomEmail\Http\Controllers', 'middle
     Route::post('/template/status', 'TemplatesController@status')->name('template.status');
     Route::get('template-list', 'TemplatesController@listTemplates')->name('template.list');
     Route::delete('/delete-template', 'TemplatesController@delete')->name('template.delete');
+});
 });
