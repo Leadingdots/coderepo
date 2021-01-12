@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
-Route::group(['namespace' => 'Leadingdots\CustomEmail\Http\Controllers', 'middleware' => ['web'],'as'=>'ldots.'], function(){
+Route::group(['namespace' => 'Leadingdots\CustomEmail\Http\Controllers', 'middleware' => [config('coderepoldots.middleware')],'as'=>'ldots.'], function(){
    
     //token routes
     Route::resource('token', 'TokensController');

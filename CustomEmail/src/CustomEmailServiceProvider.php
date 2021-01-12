@@ -18,6 +18,10 @@ class CustomEmailServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/resources/views' => base_path('resources/views/leadingdots/customemail'),
         ]);
+
+        $this->publishes([
+            __DIR__.'/config' => base_path('config'),
+        ]);
     }
 
     public function register()
