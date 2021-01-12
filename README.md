@@ -41,6 +41,8 @@ After publishing you can get the blade files at /resources/views/leadingdots/cus
 Now you just need to run migration command for our email template tables generating. Run the command below-
 
     php artisan migrate
+    
+Now you can set your routes prefix and middlewares in /config/coderepoldots.php file
 
 ## Using
 
@@ -53,19 +55,29 @@ You can use DynamicMail class into your controllers to send emails like example 
           'token1' => 'Token 1 value',
           'token2' => 'Token 2 value'
     ];
-    \Mail::to(<reciever-email-id>)->send(new DynamicMail($tokens, <template-type>));
+    $attachments = [
+            [
+            'data' => 'file url here',
+            'name' => 'file name here'
+            ],
+            [
+            'data' => 'file url here',
+            'name' => 'file name here'
+            ]
+        ]
+    \Mail::to(<reciever-email-id>)->send(new DynamicMail($tokens, <template-type>, $attachments));
 
 ### Creating Tokens
  
  Tokens are key for our dynamic data in our mails like user name, contact info etc. After fully installation of this package, to create tokens you need to go to the url below and from there you can create no. of tokens needed.
 
-    <your-project-url>/token
+    <your-project-url>/<prefix-set-in-config>/token
 
 ### Creating Templates
 
  After fully installation of this package, to create templates you need to go to the url below and from there you can create no. of templates needed.
 
-    <your-project-url>/template
+    <your-project-url>/<prefix-set-in-config>/template
 
 ### Privacy
 
